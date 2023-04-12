@@ -11,10 +11,7 @@ function TaskCheckBox({value,id, date, isChecked, changeCheck,
     const [valueOfInput, setValueOfInput] = useState(value);
     const [isEdit, setIsEdit] = useState(true);
 
-   const style = {
-      width: '168px',
-      fontSize: '18px' 
-    }
+  
    
     function changeHandler(value){
       setValueOfInput(value)
@@ -61,8 +58,7 @@ function TaskCheckBox({value,id, date, isChecked, changeCheck,
           />
         <ChangeTaskInput 
           valueOfInput={valueOfInput} 
-          changeHandler={changeHandler}
-          style={style}/>
+          changeHandler={changeHandler}/>
       </div>
     } if(!flagTasksEditButton) {
       res = <label>

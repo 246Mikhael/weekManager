@@ -4,17 +4,17 @@
 .seven-blocks {
         display: flex;
         flex-wrap: wrap;
-        width: 630px;
         flex-direction: row;
         margin: 20px auto;
         padding: 20px 10px 10px 20px;
         justify-content: center;
         border: 5px solid #D2691E;
         border-radius: 15px;
+        width:970px;  
 }
 .day-block {
         box-sizing: border-box;
-        width: 200px;
+        width: 230px;
         height: 250px;
         border: 1px solid black;
         border-radius: 5px;
@@ -29,10 +29,19 @@
 .input-task {
         position: absolute;
         bottom: 30px;
-        width: 96%;
+        width: 97%;
+        border: 3px solid black;
+        background-color: aquamarine;
         height: 20px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: large;
+}
+.change-task {
+                width: 86%;
+                font-size: 16px;
+                background-color: aquamarine;
+                border: 3px solid black
+              
 }
 .add-panel {
         padding-top: 4px;
@@ -41,10 +50,10 @@
 .name-day-block {
         position: absolute;
         text-align: center;
-        padding-left: 50px; 
-        font-weight: lighter;
+        padding-left: 40px; 
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 18px;
+        font-size: 20px;
+        font-weight: bolder;
         font-style: italic;
         color: white;   
 }
@@ -67,7 +76,7 @@
         box-sizing: border-box;
         margin-top: 20px;
         border: 1px solid black;
-        width: 198px;
+        width: 228px;
         height: 198px;
         overflow: auto;
         background-color: #F0E68C;
@@ -98,7 +107,6 @@
 .change-weeks {
         display: flex;
         flex-wrap: wrap;
-        width: 655px;
         flex-direction: row;
         margin: 20px auto;
         padding-top: 20px;
@@ -106,6 +114,7 @@
         justify-content: center;
         border: 5px solid #D2691E;
         border-radius: 15px;
+        width: 1000px;
        
         
 }
@@ -117,8 +126,8 @@
         font-family: Arial, Helvetica, sans-serif;
         font-style: italic;
         font-weight: bolder;
-        width: 196px;
-        height: 50px
+        height: 50px;
+        width: 310px; 
 }
 #plus-week-button{
         margin-right: 20px;
@@ -143,25 +152,30 @@
         cursor: pointer;
 }
 
-@media (min-width: 1024px){
+@media (max-width: 1024px){
+  .change-task {
+         width: 84%;
+        }    
   .change-weeks {
-        width: 1000px;    
+        width: 655px;    
   }  
   .week-button{
-        width: 310px;   
+        width: 196px;   
   } 
-  .seven-blocks{
-        width:970px;  
+  .seven-blocks{ 
+        width: 630px; 
   } 
   .day-block {
-      width: 230px;
+      width: 200px;
   }
   .task {
-        width: 228px;
+        width: 198px;
   }
+  .input-task {
+        width: 96%;
 }
-
-@media (min-width: 425px) and (max-width: 700px){
+}
+@media (min-width: 426px) and (max-width: 799px){
   .change-weeks {
         width: 460px;    
   } 
@@ -171,6 +185,7 @@
   .week-button{
         width: 133px;
   }
+  
 }
 
 @media (max-width: 425px) {
@@ -189,8 +204,17 @@
     .task {
         width: 278px;
   }
+  .change-task {
+        width: 89.5%;
+       } 
   .week-button{
         width: 80px;
         font-size: 11px;
   }
+  .name-day-block{
+        padding-left: 70px;
+  }
+  .change-task {
+        width: 89%;
+}
 }
