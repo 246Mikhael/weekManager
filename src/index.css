@@ -1,3 +1,9 @@
+:root {
+        --color1: rgb(229, 177, 118);
+        --color2: rgb(37%, 50%, 54%);
+        --color3: rgb(134, 178, 193);
+}
+
 .main {
         background-color: rgb(219, 253, 241);
 }
@@ -8,177 +14,405 @@
         margin: 20px auto;
         padding: 20px 10px 10px 20px;
         justify-content: center;
-        border: 5px solid #D2691E;
-        border-radius: 15px;
+        background-color: white;
+        border-radius: 5px;
         width:970px;  
+        background-color: var(--color3)
 }
 .day-block {
         box-sizing: border-box;
         width: 230px;
         height: 250px;
-        border: 1px solid black;
-        border-radius: 5px;
         display: inline-block;
         margin-right: 10px;
         margin-bottom: 10px;
         display: inline-block;
         position: relative;
-        background-color: #D2691E;
+        background-color: aliceblue;
 }
-
+#first-block, .change-weeks {
+        box-sizing: border-box;
+        width: 230px;
+        height: 250px;
+        display: inline-block;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+        position: relative;    
+}
+#flag-first-block {
+        width: 100%;
+        height: 50px;
+        background-color: var(--color1);
+        position: absolute;
+        left: -20px;
+        font-size: 40px;
+        color: white;
+        -webkit-text-stroke: 2px var(--color2);
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        padding-left: 15px;
+}
+#flag-first-block:before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border: 25px solid transparent;
+        border-right: 20px solid rgb(134, 178, 193);;
+}
 .input-task {
         position: absolute;
-        bottom: 30px;
-        width: 97%;
+        bottom: 7px;
+        width: 100%;
+        left: 60px;
         border: 3px solid black;
-        background-color: aquamarine;
-        height: 20px;
+        background-color: aliceblue;
+        height: 30px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: large;
+        border-radius: 5px;
+        z-index: 10;
 }
 .change-task {
                 width: 86%;
                 font-size: 16px;
                 background-color: aquamarine;
-                border: 3px solid black
+                border: 3px solid black;
+                margin-bottom: 5px;
               
 }
 .add-panel {
         padding-top: 4px;
+        margin-top: -50px;
+        padding-left: 10px;
 }
 
 .name-day-block {
+        display: block;
+        width: 90%;
+        top: 10px;
+        left: 5%;
+        height: 30px;
+        background-color: var(--color2);
         position: absolute;
         text-align: center;
-        padding-left: 40px; 
         font-family: Arial, Helvetica, sans-serif;
         font-size: 20px;
         font-weight: bolder;
-        font-style: italic;
         color: white;   
+        box-sizing: border-box;
+        padding-top: 5px;
+}
+.name-day-block:before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border: 15px solid transparent;
+        border-right: 12px solid white;
+}
+.name-day-block:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border: 15px solid transparent;
+        border-left: 12px solid white;
 }
 
-.buttons-add-edit {
-   width: 50%;
+.button-add{
+   width: 40px;
    cursor: pointer;
+   background-image: url(images/add.png);
+   background-size: cover;
+   z-index: 100;
+   height: 40px;
+   border: 0px;
 }
-.buttons-add-edit:active {
-        background-color: #F0E68C;
+
+.button-edit{
+        width: 40px;
+        cursor: pointer;
+        background-image: url(images/edit.png);
+        background-size: cover;
+        height: 40px;
         border: 0px;
+        position: relative;
+        right: -100px;
+}
+
+.button-save{
+        width: 48px;
+        cursor: pointer;
+        background-image: url(images/save.png);
+        background-size: cover;
+        z-index: 100;
+        height: 40px;
+        border: 0px;
+        position: relative;
+        left: 140px;
+}
+
+.button-save-with-input{
+        width: 46px;
+        cursor: pointer;
+        background-image: url(images/save.png);
+        background-size: cover;
+        z-index: 100;
+        height: 40px;
+        border: 0px;
+        position: relative;
+        bottom: 3px;
+        left: -5px;
 }
 
 .button-edit-past {
-       width: 100%;
-       cursor: pointer;
-    }
+        width: 40px;
+        cursor: pointer;
+        background-image: url(images/edit.png);
+        background-size: cover;
+        height: 40px;
+        border: 0px;
+        position: relative;
+        right: -140px;
+}
+
+.button-save-past {
+        width: 48px;
+        cursor: pointer;
+        background-image: url(images/save.png);
+        background-size: cover;
+        height: 40px;
+        border: 0px;
+        position: relative;
+        right: -140px;
+}
 
 .task {
         box-sizing: border-box;
-        margin-top: 20px;
-        border: 1px solid black;
+        margin-top: 50px;
         width: 228px;
         height: 198px;
         overflow: auto;
-        background-color: #F0E68C;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
 }
 
 .delete-button {
-        background-image: url(images/delete-icon.png);
+        background-image: url(images/delete.png);
         background-size: contain;
-        height: 20px;
-        width: 20px;
+        height: 25px;
+        width: 25px;
         cursor: pointer;
-        border: 1px solid #D2691E;
         float: right;
+        border: 0px;
 }
 
 .edit-button {
-        background-image: url(images/edit-icon.png);
-        border: 1px solid #D2691E;
+        background-image: url(images/edit.png);
         background-size: contain;
-        height: 20px;
-        width: 20px;
+        height: 25px;
+        width: 25px;
         cursor: pointer;
+        border: 0px;
         float: right;
 }
 
-.change-weeks {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        margin: 20px auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        justify-content: center;
-        border: 5px solid #D2691E;
-        border-radius: 15px;
-        width: 1000px;
-       
-        
+.save-button {
+        background-image: url(images/save.png);
+        background-size: contain;
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        border: 0px;
+        margin-right: -1px;
+        float: right;
 }
 
 .week-button {
-        background-color: #F0E68C;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 17px;
         font-family: Arial, Helvetica, sans-serif;
         font-style: italic;
-        font-weight: bolder;
         height: 50px;
         width: 310px; 
+        border: none;
+        color: white;
 }
 #plus-week-button{
-        margin-right: 20px;
-        margin-left: 10px;
-        border-radius: 0px 10px 10px 0px
+        width: 100%;
+        background-color: var(--color1);
+        margin-top: 20px;
+        position: absolute;
+        left: 20px;
+}
+#plus-week-button:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border: 25px solid transparent;
+        border-left: 20px solid rgb(134, 178, 193);;
 }
 #minus-week-button{
-        margin-left: 20px;
-        border-radius: 10px 0px 0px 10px
+        width: 100%;
+        background-color: var(--color1);
+        margin-top: 100px;
+        position: absolute;
+        left: 20px;
+}
+#minus-week-button:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border: 25px solid transparent;
+        border-left: 20px solid rgb(134, 178, 193);
 }
 
 #current-week-button{
-        margin-left: 10px
+        width: 100%;
+        background-color: var(--color1);
+        margin-top: 180px;
+        position: absolute;
+        left: 20px;
+}
+#current-week-button:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border: 25px solid transparent;
+        border-left: 20px solid rgb(134, 178, 193);;
 }
 
 .week-button:active {
         background-color: #D2691E;
         color: #F0E68C;
 }
+.week-button:hover {
+        color: black;
+}
 
 .checkbox {
         cursor: pointer;
+        margin-bottom: 15px;
 }
 
-@media (max-width: 1024px){
+#tooltip {
+   box-sizing: content-box;
+   border: 2px solid var(--color1);
+   color: black;
+   background-color: white;
+   font-size: 20px;
+   z-index: 1000;
+   font-family: 'Arial Narrow', Arial, sans-serif;
+}
+/*-------------------------------------------------*/
+@media (min-width: 1601px) {
+ .change-weeks {
+       width: 100%; 
+       display: flex;
+       flex-direction: row;
+       height: 150px;
+ }
+ #minus-week-button, #current-week-button, #plus-week-button {
+        width: 30%;
+        position: relative;
+        margin-top: 50px;
+        font-size: 24px;
+ }
+ #current-week-button {
+        margin-left: 5%;
+        margin-right: 5%;
+ }
+ #minus-week-button {
+        margin-left: -20px;
+ }
+ #minus-week-button:before {
+        border: 0px;
+ }
+ #minus-week-button:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border: 25px solid transparent;
+        border-right: 20px solid rgb(134, 178, 193)   
+ }
+ #current-week-button:after {
+        content: "";
+        position: absolute;
+        right: -20px;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-left: 20px solid var(--color1);
+        border-top: 25px solid transparent;
+        border-bottom: 25px solid transparent;
+ }
+ #current-week-button:before {
+        content: "";
+        position: absolute;
+        left: -38px;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-right: 20px solid var(--color1);
+        border-top: 25px solid transparent;
+        border-bottom: 25px solid transparent;
+ }
+
+ .button-edit-past, .button-save-past {
+        right: -170px;
+ }
+ .button-edit {
+        right: -130px;
+ }
+ .button-save {
+        left: 170px;
+ }
+}
+
+@media (max-width: 1600px){
   .change-task {
-         width: 84%;
+         width: 80%;
         }    
-  .change-weeks {
-        width: 655px;    
-  }  
-  .week-button{
-        width: 196px;   
-  } 
+  
   .seven-blocks{ 
         width: 630px; 
   } 
-  .day-block {
+  .day-block, #first-block, .change-weeks {
       width: 200px;
   }
   .task {
         width: 198px;
   }
   .input-task {
-        width: 96%;
+        width: 80%;
 }
 }
 @media (min-width: 426px) and (max-width: 799px){
   .change-weeks {
         width: 460px;    
   } 
+  .week-button {
+        font-size: 22px;
+  }
   .seven-blocks{
         width: 425px;  
   } 
@@ -212,9 +446,27 @@
         font-size: 11px;
   }
   .name-day-block{
-        padding-left: 70px;
+        text-align: center;
   }
   .change-task {
         width: 89%;
-}
+  }
+  .button-edit-past, .button-save-past {
+     margin-left: 75px;
+  }
+  .button-save {
+        margin-left: 75px;
+  }
+  .button-edit {
+        margin-left: 75px;
+  }
+  #first-block {
+        height: 55px;
+  }
+  #flag-first-block {
+        margin-left: -34px;
+  }
+  .week-button {
+        font-size: 25px;
+  }
 }

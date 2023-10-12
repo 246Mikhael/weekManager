@@ -12,51 +12,54 @@ function AddPanel({
   flagTasksEditButton,
   setTask ,
   visibleAdd,
-   date,
-   today,
-   tasksFromStore}){
+  date,
+  today,
+  tasksFromStore}){
 
-    const[newTask, setNewTask] = useState('');
 
-    function setValue(value){
-        setNewTask(value);
-    }
 
-    function addZeros(date){
-      let arr = date.split(' ')
-      arr[1] = addZero(String(Number(arr[1])));
-      arr[2] = addZero(String(Number(arr[2])));
-      return arr.join(' ')
-   }
+
+  const[newTask, setNewTask] = useState('');
+
+  function setValue(value){
+    setNewTask(value);
+  }
+
+  function addZeros(date){
+    let arr = date.split(' ')
+    arr[1] = addZero(String(Number(arr[1])));
+    arr[2] = addZero(String(Number(arr[2])));
+    return arr.join(' ')
+  }
    
-   function addZero(num){
+  function addZero(num){
     if (num >= 0 && num <= 9){
        return '0' + num;
     } else {
        return num;
     }
- }
- let normalDate = addZeros(date);
- let normalToday = addZeros(today);
+  }
+  let normalDate = addZeros(date);
+  let normalToday = addZeros(today);
   
   
-    let flag = true;
+  let flag = true;
 
-    if(valueId === idOfDay){
-        flag = false;
-    } 
-    if(valueId === undefined){
-      flag = true;
-    }
+  if(valueId === idOfDay){
+    flag = false;
+  } 
+  if (valueId === undefined) {
+    flag = true;
+  }
 
-    let res;
+  let res;
 
-    let style = {
-      width: '100%'
-    }
-    let tasksThisDay = tasksFromStore[date];
+  let tasksThisDay = tasksFromStore[date];
 
-    if(flag === true && normalDate >= normalToday && tasksThisDay){
+  if ( flag === true && 
+       normalDate >= normalToday && 
+       tasksThisDay && 
+       !flagTasksEditButton) {
     
       res = <div><AddButton 
         setId={setId} 
@@ -69,11 +72,26 @@ function AddPanel({
       getFlag={getFlag} 
       flagTasksEditButton={flagTasksEditButton}/>
       </div>
-      } 
+  }
+
+  if (flag === true && 
+     normalDate >= normalToday && 
+     tasksThisDay && 
+     flagTasksEditButton) {
+    
+        res = <div>
+           <EditPresentAndFutureTasksButton 
+            getFlag={getFlag} 
+            flagTasksEditButton={flagTasksEditButton}/>
+          </div>
+  }  
       
-      if(flag === true && normalDate >= normalToday && !tasksThisDay){
+  if (flag === true && 
+      normalDate >= normalToday && 
+      !tasksThisDay) {
       
-        res = <div><AddButton style={style}
+        res = <div>
+          <AddButton
           setId={setId} 
           idOfDay={idOfDay} 
           flag={flag} 
@@ -81,32 +99,33 @@ function AddPanel({
           date={date}
         />
         </div>
-        } 
+  } 
         
         
-      if ((flag === false && normalDate >= normalToday/* && tasksThisDay*/) /*||
-        (flag === false && date >= today && !tasksThisDay)*/){
-        res = <div><InputTask 
+  if (flag === false && 
+      normalDate >= normalToday) {
+        res = <div>
+                <InputTask 
                    setValue={setValue}/>
                 <AddButton 
-                  style={style}
                   newTask={newTask} 
                   setTask={setTask}
                   setId={setId}
                   date={date}
                   />
              </div>
-      } if ( normalDate < normalToday && tasksThisDay){
-        res = <EditPastTasksButton
-         getFlag={getFlag} 
-         flagTasksEditButton={flagTasksEditButton}/>;
-      }
+  } if ( normalDate < normalToday &&
+         tasksThisDay) {
+           res = <EditPastTasksButton
+                 getFlag={getFlag} 
+                flagTasksEditButton={flagTasksEditButton}/>
+  }
 
 
 
-    return <div className="add-panel">
-        {res}
-    </div>
+  return <div className="add-panel">
+      {res}
+  </div>
 }
 
 export default AddPanel;

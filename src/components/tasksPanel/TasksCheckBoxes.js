@@ -3,8 +3,8 @@ import TaskCheckBox from "./TaskCheckbox";
 import ListOfPastTasks from "./ListOfPastTasks"
 
 function TasksCheckBoxes({
-  tasksFromStore,
-  deleteTask,
+   tasksFromStore,
+   deleteTask,
    date,
    changeCheck, 
    editTask,
@@ -15,34 +15,39 @@ function TasksCheckBoxes({
   }){
    
 
-  const tasksOfDay = tasksFromStore[date]; 
-  function addZeros(date){
+  const tasksOfDay = tasksFromStore[date];
+
+  function addZeros(date) {
+
     let arr = date.split(' ')
     arr[1] = addZero(String(Number(arr[1])));
     arr[2] = addZero(String(Number(arr[2])));
+
     return arr.join(' ')
- }
- 
- function addZero(num){
-  if (num >= 0 && num <= 9){
-     return '0' + num;
-  } else {
-     return num;
   }
-}
+ 
+ function addZero(num) {
+    if (num >= 0 && num <= 9) {
+       return '0' + num;
+    } else {
+       return num;
+   }
+ }
 
 let normalDate = addZeros(date);
 let normalToday = addZeros(today); 
 
  
 
-  let res;
- if(!tasksOfDay){
+let res;
+
+if(!tasksOfDay){
    res = '';
- } else {
-   res = tasksOfDay.map(function(item, index){
+} else {
+   res = tasksOfDay.map(function( item, index ) {
+
      if(normalDate >= normalToday){
-    return <TaskCheckBox key={index}
+       return <TaskCheckBox key={index}
                          index={index}
                          value={item.value}
                          date={date} 

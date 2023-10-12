@@ -9,15 +9,30 @@ function EditTaskButton({
   valueOfInput,
   setVisibleAdd}){
 
-   let obj = {id: id, date: date, value: valueOfInput};
+   let obj = {id: id, 
+              date: date, 
+              value: valueOfInput
+            };
+
+   let text;
+
+    if (isEdit) {
+      text = 'редактировать' 
+    } else {
+      text = 'сохранить'
+    }
   
-    return <button className="edit-button" onClick={()=>{
-        if(isEdit){
+    return <button 
+      className={!isEdit ? "save-button" : "edit-button" }
+
+      data-tooltip-id="tooltip"
+      data-tooltip-content = {text}
+
+      onClick={()=>{
+        if (isEdit) {
           setVisibleAdd()
           changeIsEdit()
-          console.log('!!!')
-        } else{
-          console.log(obj)
+        } else {
           editTask(obj)
           setVisibleAdd()
           changeIsEdit() 

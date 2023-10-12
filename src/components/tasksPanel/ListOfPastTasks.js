@@ -14,13 +14,14 @@ function ListOfPastTasks({
  
    const style = {
         textDecoration: isChecked ? 'line-through' : 'none',
-        paddingLeft: '5px'
+        paddingLeft: '5px',
+        marginBottom: '10px'
     }
 
     if(flagTasksEditButton){
-   return <div>
-    <li style={style}>
-        {value}
+      return <div>
+       <li style={style}>
+         {value}
         <DeleteTaskButton 
            deleteTask={deleteTask} 
            date={date} 
@@ -28,14 +29,13 @@ function ListOfPastTasks({
            tasksFromStore={tasksFromStore}
            deleteEmptyDay={deleteEmptyDay}/>
         </li>
-        
-        </div>
-    } else{
+     </div>
+    } else {
       return <div>
-      <li style={style}>
+        <li style={style}>
           {value}
           </li>
-          </div>
+      </div>
     } 
 }
 

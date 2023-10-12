@@ -2,9 +2,11 @@ import ShowSevenBlocks from './container/ShowSevenBlocks';
 
 
 function App() {
+
+
   return (
     <div>
-      <ShowSevenBlocks/>
+      <ShowSevenBlocks />
     </div>
   );
 }

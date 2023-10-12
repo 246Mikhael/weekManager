@@ -5,8 +5,17 @@ import EditTaskButton from './EditTaskButton'
 
 
 
-function TaskCheckBox({value,id, date, isChecked, changeCheck,
-  deleteTask, editTask, setVisibleAdd,flagTasksEditButton,deleteEmptyDay,tasksFromStore}){
+function TaskCheckBox({ value,
+                        id, 
+                        date, 
+                        isChecked, 
+                        changeCheck,
+                        deleteTask, 
+                        editTask, 
+                        setVisibleAdd,
+                        flagTasksEditButton,
+                        deleteEmptyDay,
+                        tasksFromStore}) {
 
     const [valueOfInput, setValueOfInput] = useState(value);
     const [isEdit, setIsEdit] = useState(true);
@@ -20,33 +29,34 @@ function TaskCheckBox({value,id, date, isChecked, changeCheck,
     function changeIsEdit(){
       setIsEdit(!isEdit)
     }
-    console.log(isEdit)
     
     let res;
 
 
-    if(isEdit && flagTasksEditButton){
+    if (isEdit && flagTasksEditButton) {
       res = <div>
-        <label>
-         <EditTaskButton 
-          isEdit={isEdit}
-          changeIsEdit={changeIsEdit}
-          setVisibleAdd={setVisibleAdd}
-          /> 
         <DeleteTaskButton 
            deleteTask={deleteTask} 
            date={date} 
            id={id}
            deleteEmptyDay={deleteEmptyDay}
            tasksFromStore={tasksFromStore}/>
+         <EditTaskButton 
+          isEdit={isEdit}
+          changeIsEdit={changeIsEdit}
+          setVisibleAdd={setVisibleAdd}
+          /> 
+        
 
-           <input type="checkbox" className="checkbox"
-          onChange={()=>{changeCheck(obj)}} checked={isChecked} />
-       {value}   
-    </label>
+        <input type="checkbox" 
+               className="checkbox"
+               onChange={()=>{changeCheck(obj)}} checked={isChecked} />
+       <label>
+         {value}   
+       </label>   
           
       </div>
-    } if(!isEdit && flagTasksEditButton) {
+    } if (!isEdit && flagTasksEditButton) {
       res = <div>
         <EditTaskButton 
           changeIsEdit={changeIsEdit}
@@ -60,16 +70,31 @@ function TaskCheckBox({value,id, date, isChecked, changeCheck,
           valueOfInput={valueOfInput} 
           changeHandler={changeHandler}/>
       </div>
-    } if(!flagTasksEditButton) {
+    } if (!flagTasksEditButton) {
+    
+      let text;
+
+    if (!isChecked) {
+      text = 'пометить как выполненное' 
+    } else {
+      text = 'отменить пометку о выполнении'
+    }
+
       res = <label>
-               <input type="checkbox" className="checkbox"
+               <input 
+                      type="checkbox" 
+                      className="checkbox"
+                      data-tooltip-id="tooltip"
+                      data-tooltip-content = {text}
                       onChange={()=>{changeCheck(obj)}} checked={isChecked} />
                      {value}   
                </label>
     }
   
     
-    const obj = {id: id, date: date};
+    const obj = {id: id, 
+                 date: date
+                };
   
     return <div>
       {res}  
