@@ -78,9 +78,9 @@
 .change-task {
                 width: 86%;
                 font-size: 16px;
-                background-color: aquamarine;
                 border: 3px solid black;
                 margin-bottom: 5px;
+                border-radius: 5px;
               
 }
 .add-panel {
@@ -386,6 +386,9 @@
  .button-save {
         left: 170px;
  }
+ .change-task {
+        width: 82%;    
+ }
 }
 
 @media (max-width: 1600px){
@@ -449,7 +452,7 @@
         text-align: center;
   }
   .change-task {
-        width: 89%;
+        width: 84%;
   }
   .button-edit-past, .button-save-past {
      margin-left: 75px;
@@ -465,8 +468,10 @@
   }
   #flag-first-block {
         margin-left: -34px;
+        font-size: 38px;
   }
   .week-button {
         font-size: 25px;
   }
+ 
 }
