@@ -65,7 +65,7 @@
 .input-task {
         position: absolute;
         bottom: 7px;
-        width: 100%;
+        width: 80%;
         left: 60px;
         border: 3px solid black;
         background-color: aliceblue;
@@ -202,6 +202,7 @@
         overflow: auto;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
+        overflow: hidden;
 }
 
 .delete-button {
@@ -243,7 +244,7 @@
         height: 50px;
         width: 310px; 
         border: none;
-        color: white;
+        color: black;
 }
 #plus-week-button{
         width: 100%;
@@ -303,7 +304,7 @@
         color: #F0E68C;
 }
 .week-button:hover {
-        color: black;
+        color: white;
 }
 
 .checkbox {
@@ -321,7 +322,7 @@
    font-family: 'Arial Narrow', Arial, sans-serif;
 }
 /*-------------------------------------------------*/
-@media (min-width: 1601px) {
+@media (min-width: 1001px) {
  .change-weeks {
        width: 100%; 
        display: flex;
@@ -329,17 +330,22 @@
        height: 150px;
  }
  #minus-week-button, #current-week-button, #plus-week-button {
-        width: 30%;
+        width: 33%;
         position: relative;
         margin-top: 50px;
         font-size: 24px;
+        font-weight: bold;
  }
  #current-week-button {
-        margin-left: 5%;
-        margin-right: 5%;
+        margin-left: 4%;
+        margin-right: 4%;
+ }
+
+ #plus-week-button {
+        margin-right: 0px;
  }
  #minus-week-button {
-        margin-left: -20px;
+        margin-left: -40px;
  }
  #minus-week-button:before {
         border: 0px;
@@ -391,36 +397,65 @@
  }
 }
 
-@media (max-width: 1600px){
-  .change-task {
-         width: 80%;
-        }    
-  
-  .seven-blocks{ 
-        width: 630px; 
-  } 
-  .day-block, #first-block, .change-weeks {
-      width: 200px;
-  }
-  .task {
-        width: 198px;
-  }
-  .input-task {
-        width: 80%;
+@media (min-width: 800px) and (max-width:1000px) {
+        .seven-blocks {
+                width: 720px;
+                padding-bottom: 0px;
+        }
+        .day-block, #first-block, #change-weeks {
+                height: 220px;
+        }
+        .add-panel {
+                margin-top: -72px;
+        }
+        .button-edit-past {
+                right: -172px;
+        }
+        .button-save-past {
+                right: -170px;
+        }
+        .button-edit{
+                right: -130px;
+        }
+        .button-save {
+                left: 170px;
+        }
+        .change-task {
+                width: 80%;
+        }
+        #flag-first-block {
+                left: -20px;
+        }
+        .week-button {
+                font-size: 20px;
+                font-weight: bolder;
+        }
+
 }
-}
+
 @media (min-width: 426px) and (max-width: 799px){
   .change-weeks {
         width: 460px;    
   } 
-  .week-button {
-        font-size: 22px;
-  }
+  .day-block, #first-block {
+        width: 200px;
+    }
   .seven-blocks{
         width: 425px;  
   } 
   .week-button{
         width: 133px;
+        font-size: 26px;
+        font-weight: bold;
+  }
+  .delete-button {
+        margin-right: 30px;
+  }
+  .save-button {
+        margin-right: 28px;
+  }
+  .change-task {
+        width: 70%;
   }
   
 }
@@ -467,11 +502,12 @@
         height: 55px;
   }
   #flag-first-block {
-        margin-left: -34px;
+        margin-left: -20px;
         font-size: 38px;
   }
   .week-button {
         font-size: 25px;
   }
+  
  
 }

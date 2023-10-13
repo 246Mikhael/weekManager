@@ -67,7 +67,12 @@ function TaskCheckBox({ value,
           setVisibleAdd={setVisibleAdd}
           />
         <ChangeTaskInput 
-          valueOfInput={valueOfInput} 
+          valueOfInput={valueOfInput}
+          changeIsEdit={changeIsEdit}
+          editTask={editTask} 
+          date={date}  
+          id={id}
+          setVisibleAdd={setVisibleAdd} 
           changeHandler={changeHandler}/>
       </div>
     } if (!flagTasksEditButton) {

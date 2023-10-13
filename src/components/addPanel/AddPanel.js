@@ -106,7 +106,11 @@ function AddPanel({
       normalDate >= normalToday) {
         res = <div>
                 <InputTask 
-                   setValue={setValue}/>
+                   setValue={setValue}
+                   newTask={newTask} 
+                   setTask={setTask}
+                   setId={setId}
+                   date={date}/>
                 <AddButton 
                   newTask={newTask} 
                   setTask={setTask}

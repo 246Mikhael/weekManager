@@ -2,7 +2,14 @@ import React from "react";
 import { nanoid } from "@reduxjs/toolkit";
 
 
-function AddButton({setId,setTask,idOfDay, flag, newTask, date, setValue}){
+function AddButton({setId,
+                    setTask,
+                    idOfDay, 
+                    flag, 
+                    newTask, 
+                    date, 
+                    setValue
+                  }){
 
   function id() {
     return nanoid();
